@@ -1,0 +1,11 @@
+[
+  { "id": "apfel", "name": "Apfel", "emoji": "🍎", "preis": 1 },
+  { "id": "banane", "name": "Banane", "emoji": "🍌", "preis": 1 },
+  { "id": "karotte", "name": "Karotte", "emoji": "🥕", "preis": 2 },
+  { "id": "tomate", "name": "Tomate", "emoji": "🍅", "preis": 1 },
+  { "id": "brokkoli", "name": "Brokkoli", "emoji": "🥦", "preis": 2 },
+  { "id": "erdbeere", "name": "Erdbeere", "emoji": "🍓", "preis": 3 },
+  { "id": "zitrone", "name": "Zitrone", "emoji": "🍋", "preis": 1 },
+  { "id": "paprika", "name": "Paprika", "emoji": "🫑", "preis": 2 },
+  { "id": "trauben", "name": "Trauben", "emoji": "🍇", "preis": 3 }
+]

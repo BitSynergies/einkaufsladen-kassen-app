@@ -5,21 +5,46 @@ import QuantityInput from './QuantityInput'
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart'
 
 export default function ProductGrid({ products, selectedProduct, quantity, onSelectProduct, onQuantityChange, onAddToCart, toddlerMode }) {
+  const categories = [...new Set(products.map(p => p.kategorie).filter(Boolean))]
+  const uncategorized = products.filter(p => !p.kategorie)
+
+  const sections = [
+    ...categories.map(cat => ({ label: cat, items: products.filter(p => p.kategorie === cat).sort((a, b) => a.name.localeCompare(b.name, 'de')) })),
+    ...(uncategorized.length ? [{ label: null, items: uncategorized.sort((a, b) => a.name.localeCompare(b.name, 'de')) }] : []),
+  ]
+
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
       <Box sx={{ flex: 1, overflowY: 'auto', p: 1.5 }}>
-        <Grid container spacing={1.5}>
-          {products.map(product => (
-            <Grid item xs={4} key={product.id}>
-              <ProductButton
-                product={product}
-                selected={!toddlerMode && selectedProduct?.id === product.id}
-                onClick={() => onSelectProduct(product)}
-                hidePrice={toddlerMode}
-              />
+        {sections.map(({ label, items }) => (
+          <Box key={label ?? '__none'} sx={{ mb: 2 }}>
+            {label && (
+              <Typography sx={{
+                fontWeight: 900,
+                fontSize: '1rem',
+                color: 'primary.main',
+                mb: 1,
+                px: 0.5,
+                textTransform: 'uppercase',
+                letterSpacing: '0.08em',
+              }}>
+                {label}
+              </Typography>
+            )}
+            <Grid container spacing={1.5}>
+              {items.map(product => (
+                <Grid item xs={4} key={product.id}>
+                  <ProductButton
+                    product={product}
+                    selected={!toddlerMode && selectedProduct?.id === product.id}
+                    onClick={() => onSelectProduct(product)}
+                    hidePrice={toddlerMode}
+                  />
+                </Grid>
+              ))}
             </Grid>
-          ))}
-        </Grid>
+          </Box>
+        ))}
       </Box>
       {selectedProduct && !toddlerMode && (
         <Paper

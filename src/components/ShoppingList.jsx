@@ -4,7 +4,7 @@ import ShoppingListItem from './ShoppingListItem'
 import PayButton from './PayButton'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 
-export default function ShoppingList({ cart, total, onRemove, onPay }) {
+export default function ShoppingList({ cart, total, onRemove, onPay, toddlerMode }) {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
       <Box sx={{ p: 1.5, borderBottom: '2px solid', borderColor: 'rgba(91,140,90,0.2)' }}>
@@ -22,22 +22,20 @@ export default function ShoppingList({ cart, total, onRemove, onPay }) {
           </Box>
         ) : (
           cart.map(item => (
-            <ShoppingListItem key={item.id} item={item} onRemove={onRemove} />
+            <ShoppingListItem key={item.id} item={item} onRemove={onRemove} toddlerMode={toddlerMode} />
           ))
         )}
       </Box>
       <Box sx={{ p: 1.5, borderTop: '2px solid', borderColor: 'rgba(91,140,90,0.2)' }}>
         <Divider sx={{ mb: 1.5 }} />
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-          <Typography sx={{ fontWeight: 900, fontSize: '1.1rem' }}>Gesamt:</Typography>
-          <Typography sx={{
-            fontWeight: 900,
-            fontSize: '1.5rem',
-            color: 'primary.main',
-          }}>
-            {total} €
-          </Typography>
-        </Box>
+        {!toddlerMode && (
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
+            <Typography sx={{ fontWeight: 900, fontSize: '1.1rem' }}>Gesamt:</Typography>
+            <Typography sx={{ fontWeight: 900, fontSize: '1.5rem', color: 'primary.main' }}>
+              {total} €
+            </Typography>
+          </Box>
+        )}
         <PayButton onClick={onPay} disabled={cart.length === 0} />
       </Box>
     </Box>

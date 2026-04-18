@@ -11,6 +11,7 @@ import Footer from './components/Footer'
 import { playBeep } from './utils/beep'
 
 const STORAGE_KEY = 'kassen-app-products'
+const TODDLER_KEY = 'kassen-app-toddler-mode'
 
 export default function App() {
   const [products, setProducts] = useState([])
@@ -21,6 +22,9 @@ export default function App() {
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [settingsOpen, setSettingsOpen] = useState(false)
   const [aboutOpen, setAboutOpen] = useState(false)
+  const [toddlerMode, setToddlerMode] = useState(() => {
+    return localStorage.getItem(TODDLER_KEY) === 'true'
+  })
 
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY)
@@ -38,9 +42,19 @@ export default function App() {
   }, [])
 
   const handleSelectProduct = useCallback((product) => {
+    if (toddlerMode) {
+      setCart(prev => {
+        const existing = prev.find(i => i.id === product.id)
+        if (existing) {
+          return prev.map(i => i.id === product.id ? { ...i, quantity: i.quantity + 1 } : i)
+        }
+        return [...prev, { ...product, quantity: 1 }]
+      })
+      return
+    }
     setSelectedProduct(product)
     setQuantity(1)
-  }, [])
+  }, [toddlerMode])
 
   const handleAddToCart = useCallback(() => {
     if (!selectedProduct || quantity < 1) return
@@ -77,6 +91,12 @@ export default function App() {
     setProducts(newProducts)
   }, [])
 
+  const handleToggleToddlerMode = useCallback((value) => {
+    localStorage.setItem(TODDLER_KEY, String(value))
+    setToddlerMode(value)
+    if (value) setSelectedProduct(null)
+  }, [])
+
   const handleResetProducts = useCallback(() => {
     localStorage.removeItem(STORAGE_KEY)
     fetch('/products.json')
@@ -104,6 +124,7 @@ export default function App() {
             onSelectProduct={handleSelectProduct}
             onQuantityChange={setQuantity}
             onAddToCart={handleAddToCart}
+            toddlerMode={toddlerMode}
           />
         </Box>
         <Box sx={{
@@ -118,6 +139,7 @@ export default function App() {
             total={total}
             onRemove={handleRemoveFromCart}
             onPay={handlePay}
+            toddlerMode={toddlerMode}
           />
         </Box>
       </Box>
@@ -129,6 +151,8 @@ export default function App() {
         onSave={handleSaveProducts}
         onReset={handleResetProducts}
         onClose={() => setSettingsOpen(false)}
+        toddlerMode={toddlerMode}
+        onToggleToddlerMode={handleToggleToddlerMode}
       />
       <AboutDialog open={aboutOpen} onClose={() => setAboutOpen(false)} />
     </Box>

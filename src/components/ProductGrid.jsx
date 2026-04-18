@@ -4,7 +4,7 @@ import ProductButton from './ProductButton'
 import QuantityInput from './QuantityInput'
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart'
 
-export default function ProductGrid({ products, selectedProduct, quantity, onSelectProduct, onQuantityChange, onAddToCart }) {
+export default function ProductGrid({ products, selectedProduct, quantity, onSelectProduct, onQuantityChange, onAddToCart, toddlerMode }) {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
       <Box sx={{ flex: 1, overflowY: 'auto', p: 1.5 }}>
@@ -13,14 +13,15 @@ export default function ProductGrid({ products, selectedProduct, quantity, onSel
             <Grid item xs={4} key={product.id}>
               <ProductButton
                 product={product}
-                selected={selectedProduct?.id === product.id}
+                selected={!toddlerMode && selectedProduct?.id === product.id}
                 onClick={() => onSelectProduct(product)}
+                hidePrice={toddlerMode}
               />
             </Grid>
           ))}
         </Grid>
       </Box>
-      {selectedProduct && (
+      {selectedProduct && !toddlerMode && (
         <Paper
           elevation={4}
           sx={{

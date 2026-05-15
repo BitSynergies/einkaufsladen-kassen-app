@@ -46,5 +46,22 @@
   { "id": "bier", "name": "Bier", "emoji": "🍺", "preis": 2, "kategorie": "Getränke" },
   { "id": "eiscreme", "name": "Eiscreme", "emoji": "🍨", "preis": 3, "kategorie": "Eis" },
   { "id": "softeis", "name": "Softeis", "emoji": "🍦", "preis": 2, "kategorie": "Eis" },
-  { "id": "wassereis", "name": "Wassereis", "emoji": "🍧", "preis": 2, "kategorie": "Eis" }
+  { "id": "wassereis", "name": "Wassereis", "emoji": "🍧", "preis": 2, "kategorie": "Eis" },
+  { "id": "brot", "name": "Brot", "emoji": "🍞", "preis": 2, "kategorie": "Bäckerei" },
+  { "id": "baguette", "name": "Baguette", "emoji": "🥖", "preis": 2, "kategorie": "Bäckerei" },
+  { "id": "croissant", "name": "Croissant", "emoji": "🥐", "preis": 2, "kategorie": "Bäckerei" },
+  { "id": "brezel", "name": "Brezel", "emoji": "🥨", "preis": 1, "kategorie": "Bäckerei" },
+  { "id": "bagel", "name": "Bagel", "emoji": "🥯", "preis": 2, "kategorie": "Bäckerei" },
+  { "id": "kuchen", "name": "Kuchen", "emoji": "🍰", "preis": 3, "kategorie": "Bäckerei" },
+  { "id": "geburtstagskuchen", "name": "Geburtstagskuchen", "emoji": "🎂", "preis": 5, "kategorie": "Bäckerei" },
+  { "id": "muffin", "name": "Muffin", "emoji": "🧁", "preis": 2, "kategorie": "Bäckerei" },
+  { "id": "keks", "name": "Keks", "emoji": "🍪", "preis": 1, "kategorie": "Bäckerei" },
+  { "id": "donut", "name": "Donut", "emoji": "🍩", "preis": 2, "kategorie": "Bäckerei" },
+  { "id": "waffel", "name": "Waffel", "emoji": "🧇", "preis": 2, "kategorie": "Bäckerei" },
+  { "id": "kaese", "name": "Käse", "emoji": "🧀", "preis": 2, "kategorie": "Käse" },
+  { "id": "wurst", "name": "Hot-Dog", "emoji": "🌭", "preis": 2, "kategorie": "Fleisch" },
+  { "id": "speck", "name": "Speck", "emoji": "🥓", "preis": 3, "kategorie": "Fleisch" },
+  { "id": "fleisch", "name": "Fleisch", "emoji": "🥩", "preis": 4, "kategorie": "Fleisch" },
+  { "id": "haehnchen", "name": "Hähnchen", "emoji": "🍗", "preis": 3, "kategorie": "Fleisch" },
+  { "id": "fleisch-knochen", "name": "Fleisch am Knochen", "emoji": "🍖", "preis": 4, "kategorie": "Fleisch" }
 ]

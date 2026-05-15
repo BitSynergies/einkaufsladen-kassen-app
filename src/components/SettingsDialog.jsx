@@ -84,11 +84,15 @@ export default function SettingsDialog({ open, products, onSave, onReset, onClos
           Felder: id, name, emoji, preis (ganzzahlig in €)
         </Typography>
       </DialogContent>
-      <DialogActions sx={{ px: 3, pb: 2, gap: 1 }}>
+      <DialogActions sx={{
+        px: 3, pb: 2, gap: 1,
+        flexDirection: { xs: 'column', sm: 'row' },
+        alignItems: { xs: 'stretch', sm: 'center' },
+      }}>
         <Button startIcon={<RestoreIcon />} onClick={handleReset} color="secondary" variant="outlined">
           Standardprodukte wiederherstellen
         </Button>
-        <Box sx={{ flex: 1 }} />
+        <Box sx={{ flex: 1, display: { xs: 'none', sm: 'block' } }} />
         <Button onClick={onClose} variant="outlined">Abbrechen</Button>
         <Button startIcon={<SaveIcon />} onClick={handleSave} variant="contained" color="primary">
           Speichern

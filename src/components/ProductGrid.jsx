@@ -33,7 +33,7 @@ export default function ProductGrid({ products, selectedProduct, quantity, onSel
             )}
             <Grid container spacing={1.5}>
               {items.map(product => (
-                <Grid item xs={4} key={product.id}>
+                <Grid item xs={6} sm={4} key={product.id}>
                   <ProductButton
                     product={product}
                     selected={!toddlerMode && selectedProduct?.id === product.id}

@@ -118,7 +118,7 @@ export default function App() {
         onOpenAbout={() => { setDrawerOpen(false); setAboutOpen(true) }}
       />
       <Box sx={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
-        <Box sx={{ width: '70%', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+        <Box sx={{ width: { xs: '60%', sm: '70%' }, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
           <ProductGrid
             products={products}
             selectedProduct={selectedProduct}
@@ -130,7 +130,7 @@ export default function App() {
           />
         </Box>
         <Box sx={{
-          width: '30%',
+          width: { xs: '40%', sm: '30%' },
           display: 'flex',
           flexDirection: 'column',
           borderLeft: '2px solid',

@@ -8,7 +8,7 @@ import ThankYouDialog from './components/ThankYouDialog'
 import SettingsDialog from './components/SettingsDialog'
 import AboutDialog from './components/AboutDialog'
 import Footer from './components/Footer'
-import { playBeep } from './utils/beep'
+import { playBeep, playClick } from './utils/beep'
 
 const STORAGE_KEY = 'kassen-app-products'
 const TODDLER_KEY = 'kassen-app-toddler-mode'
@@ -42,6 +42,7 @@ export default function App() {
   }, [])
 
   const handleSelectProduct = useCallback((product) => {
+    playClick()
     if (toddlerMode) {
       setCart(prev => {
         const existing = prev.find(i => i.id === product.id)

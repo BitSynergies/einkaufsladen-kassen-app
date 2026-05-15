@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Box, Typography, Divider } from '@mui/material'
 import ShoppingListItem from './ShoppingListItem'
 import PayButton from './PayButton'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 
 export default function ShoppingList({ cart, total, onRemove, onPay, toddlerMode }) {
+  const bottomRef = useRef(null)
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }, [cart.length])
+
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
       <Box sx={{ p: 1.5, borderBottom: '2px solid', borderColor: 'rgba(91,140,90,0.2)' }}>
@@ -25,6 +31,7 @@ export default function ShoppingList({ cart, total, onRemove, onPay, toddlerMode
             <ShoppingListItem key={item.id} item={item} onRemove={onRemove} toddlerMode={toddlerMode} />
           ))
         )}
+        <div ref={bottomRef} />
       </Box>
       <Box sx={{ p: 1.5, borderTop: '2px solid', borderColor: 'rgba(91,140,90,0.2)' }}>
         <Divider sx={{ mb: 1.5 }} />

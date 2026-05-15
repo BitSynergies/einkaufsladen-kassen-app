@@ -8,7 +8,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <GlobalStyles styles={{ 'html, body, #root': { height: '100%', overflowX: 'hidden' } }} />
+      <GlobalStyles styles={{
+        'html, body': { height: '100%', overflow: 'hidden', margin: 0 },
+        '#root': { height: '100%', overflow: 'hidden' },
+      }} />
       <App />
     </ThemeProvider>
   </React.StrictMode>

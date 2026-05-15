@@ -108,7 +108,7 @@ export default function App() {
   const total = cart.reduce((sum, i) => sum + i.preis * i.quantity, 0)
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh', bgcolor: 'background.default' }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', height: '100dvh', bgcolor: 'background.default' }}>
       <AppBarComponent onMenuOpen={() => setDrawerOpen(true)} />
       <NavigationDrawer
         open={drawerOpen}

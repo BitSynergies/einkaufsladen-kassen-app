@@ -5,10 +5,12 @@ import PayButton from './PayButton'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 
 export default function ShoppingList({ cart, total, onRemove, onPay, toddlerMode }) {
-  const bottomRef = useRef(null)
+  const listRef = useRef(null)
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
+    if (listRef.current) {
+      listRef.current.scrollTo({ top: listRef.current.scrollHeight, behavior: 'smooth' })
+    }
   }, [cart.length])
 
   return (
@@ -19,7 +21,7 @@ export default function ShoppingList({ cart, total, onRemove, onPay, toddlerMode
           <Typography sx={{ fontWeight: 900, fontSize: '1.1rem' }}>Einkaufsliste</Typography>
         </Box>
       </Box>
-      <Box sx={{ flex: 1, overflowY: 'auto', px: 1.5, py: 1 }}>
+      <Box ref={listRef} sx={{ flex: 1, overflowY: 'auto', px: 1.5, py: 1 }}>
         {cart.length === 0 ? (
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}>
             <Typography sx={{ color: 'text.secondary', fontSize: '0.95rem', textAlign: 'center', opacity: 0.6 }}>
@@ -31,7 +33,6 @@ export default function ShoppingList({ cart, total, onRemove, onPay, toddlerMode
             <ShoppingListItem key={item.id} item={item} onRemove={onRemove} toddlerMode={toddlerMode} />
           ))
         )}
-        <div ref={bottomRef} />
       </Box>
       <Box sx={{ p: 1.5, borderTop: '2px solid', borderColor: 'rgba(91,140,90,0.2)' }}>
         <Divider sx={{ mb: 1.5 }} />

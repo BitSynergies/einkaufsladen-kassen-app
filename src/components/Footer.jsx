@@ -23,7 +23,7 @@ export default function Footer() {
           href="https://bitsynergies.de"
           target="_blank"
           rel="noopener noreferrer"
-          sx={{ color: 'primary.main', textDecoration: 'none', fontWeight: 800 }}
+          sx={{ color: '#0192ED', textDecoration: 'none', fontWeight: 800 }}
         >
           BitSynergies
         </Box>

@@ -24,12 +24,23 @@ export default function AboutDialog({ open, onClose }) {
         </Box>
         <Divider sx={{ mb: 2 }} />
         <Typography sx={{ mb: 2, fontWeight: 600, lineHeight: 1.7 }}>
-          Eine kindgerechte Kassen-App für den Spielzeug-Einkaufsladen. Kinder im Alter von 3–5 Jahren
+          Eine kindgerechte Kassen-App für den Spielzeug-Einkaufsladen. Kinder ab dem Alter von 3 Jahren
           können damit spielerisch das Kaufen und Bezahlen üben — gemeinsam mit einem Erwachsenen
           oder einem Geschwisterkind.
+          <br/><br/>
+          Der "Kleinkind-Modus" kann in den Einstellungen ausgeschaltet werden.
         </Typography>
         <Typography sx={{ mb: 2, fontWeight: 600, lineHeight: 1.7, color: 'text.secondary' }}>
-          🎨 Erstellt für unseren Sohn, inspiriert vom Kindermuseum München.
+          🎨 Inspiriert vom{' '}
+          <Box
+            component="a"
+            href="https://www.kindermuseum-muenchen.de/"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{ color: 'primary.main', textDecoration: 'none', fontWeight: 800 }}
+          >
+            Kindermuseum München
+          </Box>.
         </Typography>
         <Divider sx={{ my: 2 }} />
         <Typography sx={{ fontWeight: 700 }}>
@@ -39,7 +50,7 @@ export default function AboutDialog({ open, onClose }) {
             href="https://bitsynergies.de"
             target="_blank"
             rel="noopener noreferrer"
-            sx={{ color: 'primary.main', textDecoration: 'none', fontWeight: 800 }}
+            sx={{ color: '#0192ED', textDecoration: 'none', fontWeight: 800 }}
           >
             BitSynergies
           </Box>

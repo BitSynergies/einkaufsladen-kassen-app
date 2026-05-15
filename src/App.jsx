@@ -23,7 +23,8 @@ export default function App() {
   const [settingsOpen, setSettingsOpen] = useState(false)
   const [aboutOpen, setAboutOpen] = useState(false)
   const [toddlerMode, setToddlerMode] = useState(() => {
-    return localStorage.getItem(TODDLER_KEY) === 'true'
+    const stored = localStorage.getItem(TODDLER_KEY)
+    return stored === null ? true : stored === 'true'
   })
 
   useEffect(() => {

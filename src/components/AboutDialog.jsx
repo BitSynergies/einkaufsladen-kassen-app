@@ -55,6 +55,18 @@ export default function AboutDialog({ open, onClose }) {
             BitSynergies
           </Box>
         </Typography>
+        <Typography sx={{ fontWeight: 700 }}>
+          Gehostet mit Hilfe von{' '}
+          <Box
+            component="a"
+            href="https://railway.com?referralCode=L_bjuB"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{ color: '#primary.main', textDecoration: 'none', fontWeight: 800 }}
+          >
+            railway.com
+          </Box>
+        </Typography>
       </DialogContent>
       <DialogActions sx={{ px: 3, pb: 2 }}>
         <Button onClick={onClose} variant="contained">Schließen</Button>

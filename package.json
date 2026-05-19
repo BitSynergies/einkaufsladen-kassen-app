@@ -8,7 +8,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "build:container": "docker build -t kassen-app .",
+    "preview": "vite preview",
+    "start:container": "docker run -p 8080:80 kassen-app"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",

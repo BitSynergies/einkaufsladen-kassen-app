@@ -15,6 +15,6 @@ oder einem Geschwisterkind.
 
 ### Docker Container
 
-- build the Docker container: `docker build -t kassen-app .`
-- Run: `docker run -p 8080:80 kassen-app`
+- build the Docker container: `npm run build:container`
+- Run: `npm run start:container`
 - Open http://localhost:8080 to confirm the app loads

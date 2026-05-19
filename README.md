@@ -13,6 +13,8 @@ oder einem Geschwisterkind.
 
 ## Deployment
 
+- deployed via Railway.com and accessable at https://einkaufsladen.bitsynergies.de/
+
 ### Docker Container
 
 - build the Docker container: `npm run build:container`
